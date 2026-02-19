@@ -1,32 +1,20 @@
 <?php
 session_start();
 
+// Redirect to login if user is not logged in
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit();
 }
 ?>
 
-<h2>Welcome <?php echo $_SESSION['user']; ?> 🎉</h2>
-
-<p>You are logged in successfully.</p>
-
-<br>
-<a href="booking.php">Book a Tour</a>
-<br><br>
-<a href="my_bookings.php">My Bookings</a>
-
-<br><br>
-<a href="logout.php">Logout</a>
-<?php
-session_start();
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit();
-}
-?>
-
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Tourism Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
 <div class="navbar">
     <a href="dashboard.php">Home</a>
@@ -36,6 +24,14 @@ if(!isset($_SESSION['user'])){
 </div>
 
 <div class="container">
-    <h2>Welcome <?php echo $_SESSION['user']; ?> 🎉</h2>
+    <h2>Welcome, <?php echo htmlspecialchars($_SESSION['user']); ?>! 🎉</h2>
     <p>You are logged in successfully.</p>
+    
+    <div class="dashboard-links">
+        <a href="booking.php" class="dashboard-link">Book a New Tour</a>
+        <a href="my_bookings.php" class="dashboard-link">View My Bookings</a>
+    </div>
 </div>
+
+</body>
+</html>

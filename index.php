@@ -19,6 +19,14 @@ if ($count == 0) {
         ('Delhi', 'Capital city & rich history');
     ");
 }
+
+$destination_images = [
+    'Goa' => 'images/goa.jpg',
+    'Manali' => 'images/manali.jpg',
+    'Jaipur' => 'images/jaipur.jpg',
+    'Delhi' => 'images/delhi.jpg'
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -53,10 +61,19 @@ if ($count == 0) {
         <?php
         $result = $db->query("SELECT * FROM destinations");
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "<div class='card'>";
-            echo "<h3>" . htmlspecialchars($row['name']) . "</h3>";
-            echo "<p>" . htmlspecialchars($row['description']) . "</p>";
-            echo "</div>";
+            $destinationName = trim($row['name']);
+            $image_url = isset($destination_images[$destinationName]) ? $destination_images[$destinationName] : 'images/default.jpg';
+            $name = htmlspecialchars($row['name']);
+            $description = htmlspecialchars($row['description']);
+
+            echo <<<CARD
+            <div class="card" style="background-image: url('$image_url')">
+                <div class="card-content">
+                    <h3>$name</h3>
+                    <p>$description</p>
+                </div>
+            </div>
+CARD;
         }
         ?>
     </div>

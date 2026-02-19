@@ -1,13 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .navbar {
-    background-color: #2c3e50;
+    background-color: rgba(44, 62, 80, 0.8);
     padding: 15px;
+    border-radius: 0 0 10px 10px;
 }
 
 .navbar a {
@@ -17,31 +36,93 @@ body {
     font-weight: bold;
 }
 
+.hero {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
 .container {
     width: 80%;
     margin: 40px auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
 h2 {
     color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.destinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1em;
 }
 
 input, select {
-    padding: 8px;
+    padding: 12px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 button, input[type="submit"] {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 20px;
     cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover, input[type="submit"]:hover {
@@ -51,19 +132,85 @@ button:hover, input[type="submit"]:hover {
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 table th {
     background-color: #3498db;
     color: white;
-    padding: 10px;
+    padding: 12px;
+    text-align: left;
 }
 
 table td {
-    padding: 10px;
+    padding: 12px;
     border-bottom: 1px solid #ddd;
 }
 
 a {
     color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+.success-message {
+    color: #27ae60;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.places-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.places-section h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.4em;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.places-section ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.places-section li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.confirmation-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.confirmation-links a {
+    margin: 0 10px;
 }
